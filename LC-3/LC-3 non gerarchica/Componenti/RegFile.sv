@@ -12,22 +12,30 @@ module RegFile (
 
   reg [15:0] memory[0:7];
    
-  initial begin //inizializzara i registi se si deve
+  initial begin
+    memory[0] = 16'b0000000000000000;
+    memory[1] = 16'b0000000000000000;
+    memory[2] = 16'b0000000000000000;
+    memory[3] = 16'b0000000000000000;
+    memory[4] = 16'b0000000000000000;
+    memory[5] = 16'b0000000000000000;
+    memory[6] = 16'b0000000000000000;
+    memory[7] = 16'b0000000000000000;
   end
   
   always @(posedge clock) begin
-    R0 <= memory[0];
+    R0 <= memory[0]; //Stampa in Output.sv
   end
     
   always @(SR1 or SR2) begin
-    SR1out = memory[SR1];
+    SR1out = memory[SR1]; //Uscite reg
     SR2out = memory[SR2];
   end
   
   always @(posedge ld_reg) begin
     #10;
     memory[DR] = data;
-    $display("carica? %b %b %b", memory[DR], data, DR);
+    $display("carica? %b %b %b", memory[DR], data, DR); //Debug
     #10;
   end
 

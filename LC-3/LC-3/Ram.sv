@@ -58,9 +58,9 @@ module RAM(
   
  always @(posedge clock) begin
    if (MAR == 16'h021b) begin
-    print = 1'b1;
+    print <= 1'b1;
   end else begin
-    print = 1'b0;
+    print <= 1'b0;
   end
    if(MAR == 16'h0025)begin
    	$finish;
@@ -84,7 +84,7 @@ module RAM(
   end
     
   if (!read && !write) begin
-    R = 1'b0;
+    R = 1'b0; 
   end
  end 
 endmodule

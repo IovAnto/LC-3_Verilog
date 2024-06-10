@@ -2,7 +2,6 @@ module final_Tb;
   
   reg clock;
   
-  //DUT (Device Under Test)
   LC_3 dut (
     .clock(clock)
   );
@@ -11,27 +10,12 @@ module final_Tb;
   always #10 clock = ~clock;
   
   initial begin
-    clock = 1'b0; // Start with clock low
+    clock = 1'b0; //inizializzo il clock a 0
   end
   
   initial begin
-    #1000000;
+    #1000000; //in caso non andasse bene qualcosa 
     $finish;
   end
 
 endmodule
-
-
-//Da rifare la FSM, bisogna renderla gerarchica cioè un FSM che chiama un FSM
-//
-//
-//	add: 
-//		FSM fut(
-//        	.ciao(ciao)   
-//			.bello(bello)
-//		);
-//  not: 
-//     FSM not (
-//		 	.aluk(aluk)
-//			.presi(presi)     //si dovrebbe fare cosi, studia FSM gerarchiche
-//     );
