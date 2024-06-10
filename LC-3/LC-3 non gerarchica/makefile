@@ -1,14 +1,16 @@
-VERILOG_SOURCES = design.sv testbench.sv
-OUTPUT = LC_3
+Componenti = ./Componenti/design.sv ./Componenti/testbench.sv
+Output = LC_3
 
-all: $(OUTPUT) run
+all: $(Output) run
 
-$(OUTPUT): $(VERILOG_SOURCES)
-	iverilog -o $(OUTPUT) $(VERILOG_SOURCES)
+$(Output): $(Componenti)
+	iverilog -o $(Output) $(Componenti)
 
 .PHONY: run
 
-run: $(OUTPUT)
+run: $(Output)
 	export PATH=$$PATH:/path/to/iverilog:/path/to/vvp
-	vvp $(OUTPUT)
-	rm -f $(OUTPUT)
+	vvp $(Output)
+	rm -f $(Output)
+	mv dump.vcd ./Output
+	
