@@ -39,7 +39,7 @@ A Makefile is provided to streamline the compilation and simulation process.
 
 ## Credits
 
-Developed by Antonio Iovine with contributions from fellow students Tommi Bimbato and Giovanni Martinelli at the University of Verona.
+Developed by Antonio Iovine with contribution of the University of Verona.
 
 ## License
 
